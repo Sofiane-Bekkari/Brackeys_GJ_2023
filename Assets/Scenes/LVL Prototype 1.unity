@@ -270,14 +270,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9161b499b7fa0d246b56a5533f8cf9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 3
+  horizontalInput: 0
+  jumpSpeed: 5
   touchGround: 0
   dropAlive: {fileID: 317818099}
   dropSolved: {fileID: 1795948426}
   dropDeath: {fileID: 1790677286}
   deathText: {fileID: 80857606}
   levelClear: {fileID: 1783476237}
-  speed: 2
+  speed: 5
 --- !u!1 &48651663
 GameObject:
   m_ObjectHideFlags: 0

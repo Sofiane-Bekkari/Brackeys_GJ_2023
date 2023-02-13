@@ -44,9 +44,8 @@ public class PlayerMovement : MonoBehaviour
         // JUMP allowd if touchGround
         if (Input.GetKeyDown(KeyCode.Space) && touchGround)
         {
-            // By adding Velocity on Jump
+            // By Adding Velocity on Jump for Soft Body
             Jump(Vector2.up);
-            
 
             //touchGround = false;
             Debug.Log("JUMP IS PRESSED");
