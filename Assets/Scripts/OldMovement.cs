@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OldMovement : MonoBehaviour
 {
@@ -71,14 +72,18 @@ public class OldMovement : MonoBehaviour
             Debug.Log("Death");
             dropAlive.Stop();
             dropDeath.Play();
-            deathText.text = "DORP DIE!";
-            deathText.transform.position = new Vector3(420, 220, 0);
-            Destroy(gameObject, 1f);
+            StartCoroutine(restartAfterDelay(0.6f));
+
         }
         if (collision.gameObject.CompareTag("Star"))
         {
            
             Destroy(collision.gameObject);
         }
+    }
+    IEnumerator restartAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
