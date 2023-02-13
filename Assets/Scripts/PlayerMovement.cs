@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     //private Sprite sp; 
-    public float horizontalInput;
     public float jumpSpeed;
     public bool touchGround;
     public ParticleSystem dropAlive;
@@ -33,21 +32,37 @@ public class PlayerMovement : MonoBehaviour
         //rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, 0);
 
         // AXIS HORIZONTAL
-        horizontalInput = Input.GetAxis("Horizontal");
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+
+        Vector2 direction = new Vector2(x, y);
+
+        Move(direction);
         // Move HORIZONTAL right / left Only
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        //transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
         // JUMP allowd if touchGround
         if (Input.GetKeyDown(KeyCode.Space) && touchGround)
         {
-            // JUMP
-            // By adding force on Jump
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
+            // By adding Velocity on Jump
+            Jump(Vector2.up);
+            
 
-            touchGround = false;
+            //touchGround = false;
             Debug.Log("JUMP IS PRESSED");
 
         }
+    }
+    //MOVE
+    void Move(Vector2 dir)
+    {
+        rb.AddForce(new Vector2(dir.x * speed, 0));
+    }
+    //JUMP
+    void Jump(Vector2 dir)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.velocity += dir * jumpSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
