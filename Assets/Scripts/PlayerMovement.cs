@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    //private Sprite sp; 
     public float horizontalInput;
     public float jumpSpeed;
     public bool touchGround;
+    public ParticleSystem dropAlive;
+    public ParticleSystem dropSolved;
+    public ParticleSystem dropDeath;
+    public TextMeshProUGUI deathText;
+    public GameObject levelClear;
     [SerializeField] float speed = 5f;
 
     // Start is called before the first frame update
@@ -49,6 +56,24 @@ public class PlayerMovement : MonoBehaviour
         {
             touchGround = true;
             Debug.Log("IS Grounded");
+           
+        }
+        if (collision.gameObject.CompareTag("Seed"))
+        {
+            Debug.Log("You Save Seed Thank you");
+            dropAlive.Stop();
+            dropSolved.Play();
+            levelClear.SetActive(true);
+            Destroy(gameObject, 2f);
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Death");
+            dropAlive.Stop();
+            dropDeath.Play();
+            deathText.text = "DORP DIE!";
+            deathText.transform.position = new Vector3(420, 220,0);
+            Destroy(gameObject, 1f);
         }
     }
 }
