@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 14951595}
   - component: {fileID: 14951596}
   - component: {fileID: 14951597}
+  - component: {fileID: 14951598}
   m_Layer: 0
   m_Name: WaterDrop
   m_TagString: Player
@@ -270,8 +271,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9161b499b7fa0d246b56a5533f8cf9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInput: 0
   jumpSpeed: 5
+  touchGround: 0
+  dropAlive: {fileID: 317818099}
+  dropSolved: {fileID: 1795948426}
+  dropDeath: {fileID: 1790677286}
+  deathText: {fileID: 80857606}
+  levelClear: {fileID: 1783476237}
+  speed: 5
+--- !u!114 &14951598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14951592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00f47807c974ff4aa5e55158ced774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalInput: 0
+  jumpSpeed: 0
   touchGround: 0
   dropAlive: {fileID: 317818099}
   dropSolved: {fileID: 1795948426}
@@ -5809,7 +5830,7 @@ GameObject:
   - component: {fileID: 396335824}
   m_Layer: 0
   m_Name: star (1)
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17182,7 +17203,7 @@ GameObject:
   - component: {fileID: 1904176933}
   m_Layer: 0
   m_Name: star (2)
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17313,7 +17334,7 @@ GameObject:
   - component: {fileID: 1995848525}
   m_Layer: 0
   m_Name: star (3)
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
