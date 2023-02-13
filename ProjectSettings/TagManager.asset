@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Seed
   - Enemy
+  - Star
   layers:
   - Default
   - TransparentFX
