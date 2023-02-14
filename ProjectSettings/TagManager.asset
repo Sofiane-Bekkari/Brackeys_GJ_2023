@@ -8,6 +8,7 @@ TagManager:
   - Seed
   - Enemy
   - Star
+  - Plant
   layers:
   - Default
   - TransparentFX

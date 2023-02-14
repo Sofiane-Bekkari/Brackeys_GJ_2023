@@ -6,11 +6,10 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    //private Sprite sp; 
     public float jumpSpeed;
     public bool touchGround;
-    public ParticleSystem dropAlive;
     public ParticleSystem dropSolved;
+    public ParticleSystem dropAlive;
     public ParticleSystem dropDeath;
     public TextMeshProUGUI deathText;
     public GameObject levelClear;
@@ -63,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpSpeed;
     }
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -79,15 +79,6 @@ public class PlayerMovement : MonoBehaviour
             dropSolved.Play();
             levelClear.SetActive(true);
             Destroy(gameObject, 2f);
-        }
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Death");
-            dropAlive.Stop();
-            dropDeath.Play();
-            deathText.text = "DORP DIE!";
-            deathText.transform.position = new Vector3(420, 220,0);
-            Destroy(gameObject, 1f);
         }
     }
 }
