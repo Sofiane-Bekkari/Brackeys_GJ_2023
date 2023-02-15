@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Star
   - Plant
+  - Insect
+  - Ground2
   layers:
   - Default
   - TransparentFX
